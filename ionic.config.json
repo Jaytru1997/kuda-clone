@@ -1,0 +1,7 @@
+{
+  "name": "peopletrust",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
