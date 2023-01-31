@@ -1,15 +1,20 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
 /** Ionic CSS Variables **/
 :root {
+
+    /* font */
+    --ion-font-family: 'Open Sans';
+    
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #40196d; /**#3880ff; **/
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #381660;
+  --ion-color-primary-tint: #53307c;
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
