@@ -189,7 +189,7 @@ import {
 } from "@ionic/vue";
 
 export default {
-  name: "HomePage",
+  name: "RegisterPage",
   components: {
     IonContent,
     IonHeader,

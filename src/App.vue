@@ -10,9 +10,5 @@ import { IonApp, IonRouterOutlet } from "@ionic/vue";
 
 <style scoped>
 @media screen and (min-width: 768px) {
-  #app {
-    /* display: none; */
-    --margin: 0px 80px !important;
-  }
 }
 </style>

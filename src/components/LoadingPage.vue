@@ -1,30 +1,5 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="12" size-md="9">
-            <!-- <ion-toolbar :translucent="true"> -->
-            <ion-title
-              ><img
-                src="../assets/people_trust_black.svg"
-                alt="bank logo"
-                class="logo"
-            /></ion-title>
-            <!-- </ion-toolbar> -->
-          </ion-col>
-          <ion-col size="12" size-md="3">
-            <ion-button fill="clear" class="signin" href="/login"
-              >Sign in</ion-button
-            >
-            <ion-button class="join" href="/register"
-              >Join People Trust</ion-button
-            >
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-header>
-
     <ion-content :fullscreen="true">
       <div id="container">
         <ion-grid>
@@ -179,22 +154,13 @@
 </template>
 
 <script>
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonButton,
-  IonText,
-} from "@ionic/vue";
+import { IonContent, IonPage, IonButton, IonText } from "@ionic/vue";
 
 export default {
   name: "HomePage",
   components: {
     IonContent,
-    IonHeader,
     IonPage,
-    IonTitle,
     IonButton,
     IonText,
   },
@@ -206,79 +172,8 @@ export default {
 
 <style scoped>
 @media screen and (min-width: 768px) {
-  ion-header {
-    /* display: none; */
-    padding: 0px 300px !important;
-    box-shadow: 6px 13px 3px -4px rgba(230, 230, 230, 0.33);
-  }
-
   #container {
     padding: 0px 300px !important;
   }
-
-  .hero {
-    padding: 0px 80px !important;
-    font-size: 40px;
-    text-align: left;
-  }
-
-  .hero-head {
-    font-size: 40px;
-    font-weight: 800;
-    text-align: left;
-  }
-}
-
-.logo {
-  width: 150px;
-}
-
-ion-header {
-  --box-shadow: 0px 0px;
-}
-.hero {
-  padding: 0px 10px;
-  font-size: 40px;
-  text-align: left;
-}
-
-.hero-head {
-  font-size: 40px;
-  font-weight: 800;
-  text-align: left;
-}
-
-.hero-card {
-  padding: 20px 10px !important;
-}
-
-.hero-subtitle {
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.card-box {
-  padding: 10px 10px;
-}
-
-.card-text {
-  font-weight: 800;
-}
-
-.hero-link {
-  font-size: 20px;
-}
-
-.link-text {
-  margin-right: 10px;
-  font-weight: 500;
-}
-
-ion-button {
-  text-transform: capitalize;
-  --border-radius: 10px;
-  --box-shadow: 0px 0px;
-  --padding-top: 25px;
-  --padding-bottom: 25px;
 }
 </style>
