@@ -3,7 +3,7 @@
     <ion-header>
       <ion-grid>
         <ion-row class="ion-align-items-center">
-          <ion-col size="12" size-md="9">
+          <ion-col size="12" size-lg="9">
             <!-- <ion-toolbar :translucent="true"> -->
             <ion-title
               ><img
@@ -13,7 +13,7 @@
             /></ion-title>
             <!-- </ion-toolbar> -->
           </ion-col>
-          <ion-col size="12" size-md="3">
+          <ion-col size="12" size-lg="3">
             <ion-button fill="clear" class="signin" href="/login"
               >Sign in</ion-button
             >
@@ -29,7 +29,7 @@
       <div id="container">
         <ion-grid>
           <ion-row class="ion-align-items-center">
-            <ion-col size="12" size-md="6" class="hero">
+            <ion-col size="12" size-lg="6" class="hero">
               <ion-text color="primary">
                 <h1 class="hero-head">We're the secure money app!</h1>
               </ion-text>
@@ -43,17 +43,17 @@
                 >Join People Trust</ion-button
               >
             </ion-col>
-            <ion-col size="12" size-md="6">
+            <ion-col size="12" size-lg="6">
               <img src="../assets/globe_circle.svg" alt="" />
             </ion-col>
           </ion-row>
 
           <!--Cards-->
           <ion-row class="ion-align-items-center section">
-            <ion-col size="12" size-md="4" class="hero-card">
+            <ion-col size="12" size-lg="4" class="hero-card">
               <ion-card class="card-box">
                 <ion-row class="ion-align-items-center">
-                  <ion-col size="2" size-md="12"
+                  <ion-col size="2" size-lg="12"
                     ><img src="../assets/currency_icon.svg" alt=""
                   /></ion-col>
                   <ion-col size="10"
@@ -66,10 +66,10 @@
                 </ion-row>
               </ion-card>
             </ion-col>
-            <ion-col size="12" size-md="4" class="hero-card">
+            <ion-col size="12" size-lg="4" class="hero-card">
               <ion-card class="card-box">
                 <ion-row class="ion-align-items-center">
-                  <ion-col size="2" size-md="12"
+                  <ion-col size="2" size-lg="12"
                     ><img src="../assets/send.svg" alt=""
                   /></ion-col>
                   <ion-col size="10"
@@ -82,10 +82,10 @@
                 </ion-row>
               </ion-card>
             </ion-col>
-            <ion-col size="12" size-md="4" class="hero-card">
+            <ion-col size="12" size-lg="4" class="hero-card">
               <ion-card class="card-box">
                 <ion-row class="ion-align-items-center">
-                  <ion-col size="2" size-md="12"
+                  <ion-col size="2" size-lg="12"
                     ><img src="../assets/person.svg" alt=""
                   /></ion-col>
                   <ion-col size="10"
@@ -102,10 +102,10 @@
 
           <!--Section-->
           <ion-row class="ion-align-items-center section">
-            <ion-col size="12" size-md="6">
+            <ion-col size="12" size-lg="6">
               <img src="../assets/guy_and_globe.svg" alt="" />
             </ion-col>
-            <ion-col size="12" size-md="6" class="hero">
+            <ion-col size="12" size-lg="6" class="hero">
               <ion-text color="primary">
                 <h1 class="hero-head">International customers are welcome!</h1>
               </ion-text>
@@ -126,7 +126,7 @@
 
           <!--Section-->
           <ion-row class="ion-align-items-center section">
-            <ion-col size="12" size-md="6" class="hero">
+            <ion-col size="12" size-lg="6" class="hero">
               <ion-text color="primary">
                 <h1 class="hero-head">Send and receive money.</h1>
               </ion-text>
@@ -143,17 +143,17 @@
                 </ion-row>
               </router-link>
             </ion-col>
-            <ion-col size="12" size-md="6">
+            <ion-col size="12" size-lg="6">
               <img src="../assets/bank_transact.svg" alt="" />
             </ion-col>
           </ion-row>
 
           <!--Section-->
           <ion-row class="ion-align-items-center section">
-            <ion-col size="12" size-md="6">
+            <ion-col size="12" size-lg="6">
               <img src="../assets/exchange.svg" alt="" />
             </ion-col>
-            <ion-col size="12" size-md="6" class="hero">
+            <ion-col size="12" size-lg="6" class="hero">
               <ion-text color="primary">
                 <h1 class="hero-head">Move money across borders.</h1>
               </ion-text>
