@@ -37,7 +37,7 @@ const routes = [
     component: PasscodePage,
   },
   {
-    path: "/dashboard",
+    path: "/authed/dashboard",
     name: "UserDashboard",
     component: DashboardPage,
   },

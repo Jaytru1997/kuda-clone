@@ -5,45 +5,73 @@
     <ion-content :fullscreen="true">
       <div id="container">
         <ion-grid>
-          <ion-row class="ion-align-items-center">
-            <ion-col size="12" class="greeting">
-              <img src="../../assets/globe_coloured.svg" alt="" />
-              <h2 class="greeting-title">Welcome Back</h2>
+          <ion-row class="ion-align-items-center ion-margin-top">
+            <ion-col size="12" class="ion-text-center">
+              <img src="../../assets/globe_coloured.svg" alt="" class="image" />
+              <h2 class="greeting">Welcome Back</h2>
               <p class="user">John Doe</p>
             </ion-col>
           </ion-row>
 
           <!--Cards-->
           <ion-row class="ion-align-items-center section">
-            <ion-icon :icon="lockClosed" color="success"></ion-icon>
-            <p>Passcode</p>
-          </ion-row>
-          <ion-row>
+            <ion-col size="12" class="ion-text-center"
+              ><ion-icon :icon="lockClosed" color="success"></ion-icon>
+              Passcode</ion-col
+            >
             <ion-input
-              placeholder="******"
+              placeholder="&cir;    &cir;    &cir;    &cir;    &cir;    &cir;"
               value=""
               required
               maxlength="6"
               type="text"
               pattern="/^[0-9]/"
-              class="passcode"
+              class="passcode ion-text-center"
             ></ion-input>
           </ion-row>
-          <ion-row class="keyboard ion-align-items-center">
-            <ion-col size="4"><div class="kbd">1</div></ion-col>
-            <ion-col size="4"><div class="kbd">2</div></ion-col>
-            <ion-col size="4"><div class="kbd">3</div></ion-col>
-            <ion-col size="4"><div class="kbd">4</div></ion-col>
-            <ion-col size="4"><div class="kbd">5</div></ion-col>
-            <ion-col size="4"><div class="kbd">6</div></ion-col>
-            <ion-col size="4"><div class="kbd">7</div></ion-col>
-            <ion-col size="4"><div class="kbd">8</div></ion-col>
-            <ion-col size="4"><div class="kbd">9</div></ion-col>
-            <ion-col size="4"><div class="kbd login">Sign Out</div></ion-col>
-            <ion-col size="4"><div class="kbd">0</div></ion-col>
-            <ion-col size="4"
-              ><div class="kbd email">
-                <ion-icon :icon="mail" color="success" size="large"></ion-icon>
+          <ion-row
+            class="keyboard ion-align-items-center ion-padding-horizontal"
+          >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">1</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">2</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">3</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">4</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">5</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">6</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">7</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">8</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">9</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-logout">Sign Out</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-input">0</div></ion-col
+            >
+            <ion-col size="4" class="ion-text-center"
+              ><div class="kbd kbd-delete">
+                <ion-icon
+                  :icon="backspace"
+                  size="large"
+                  class="clear"
+                ></ion-icon>
               </div>
             </ion-col>
           </ion-row>
@@ -54,8 +82,18 @@
 </template>
 
 <script>
-import { IonContent, IonPage } from "@ionic/vue";
-import { lockClosed, mail } from "ionicons/icons";
+import { useRouter } from "vue-router";
+
+import {
+  IonContent,
+  IonPage,
+  IonRow,
+  IonCol,
+  IonInput,
+  IonIcon,
+  IonGrid,
+} from "@ionic/vue";
+import { lockClosed, backspace } from "ionicons/icons";
 
 import LoadingPage from "../../components/LoadingPage";
 
@@ -64,19 +102,76 @@ export default {
   components: {
     IonContent,
     IonPage,
+    IonRow,
+    IonCol,
+    IonInput,
+    IonIcon,
+    IonGrid,
     LoadingPage,
   },
   data() {
     return {
       lockClosed,
-      mail,
+      backspace,
       isLoading: true,
+      router: null,
     };
+  },
+  methods: {
+    grabInputValue: (e) => {
+      const router = useRouter();
+      let inputBar = document.querySelector(".passcode");
+      e.addEventListener("click", () => {
+        let valueCheck = String(inputBar.value);
+        let isComplete = false;
+        if (valueCheck.length <= 5) {
+          inputBar.value += e.textContent;
+        }
+        if (valueCheck.length === 5) {
+          isComplete = true;
+        }
+        if (isComplete) {
+          setTimeout(() => {
+            // alert(`Your passcode is ${inputBar.value}`);
+            router.push("/authed/dashboard");
+            inputBar.value = ""; //clear password from UI
+          }, 200);
+        }
+      });
+    },
+    removeInputValue: (e) => {
+      let inputBar = document.querySelector(".passcode");
+      e.addEventListener("click", () => {
+        let valueCheck = String(inputBar.value);
+        valueCheck.slice(0, -1);
+        if (valueCheck.length > 0) {
+          inputBar.value = valueCheck;
+        }
+      });
+    },
   },
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
+
+    const inputs = document.querySelectorAll(".kbd-input");
+    const del = document.querySelector(".kbd-delete");
+    inputs.forEach((el) => {
+      this.grabInputValue(el);
+    });
+    del.addEventListener("click", function (e) {
+      e.preventDefault();
+      let inputBar = document.querySelector(".passcode");
+      let valueCheck = String(inputBar.value);
+      let newValue = valueCheck.slice(0, -1);
+      if (valueCheck.length > 0) {
+        inputBar.value = newValue;
+      }
+    });
+  },
+  created() {
+    // console.log(this.$router);
   },
 };
 </script>
@@ -92,63 +187,6 @@ export default {
   #container {
     padding: 0px 300px !important;
   }
-
-  .hero {
-    padding: 0px 80px !important;
-    font-size: 40px;
-    text-align: left;
-  }
-
-  .hero-head {
-    font-size: 40px;
-    font-weight: 800;
-    text-align: left;
-  }
-}
-
-.logo {
-  width: 150px;
-}
-
-ion-header {
-  --box-shadow: 0px 0px;
-}
-.hero {
-  padding: 0px 10px;
-  font-size: 40px;
-  text-align: left;
-}
-
-.hero-head {
-  font-size: 40px;
-  font-weight: 800;
-  text-align: left;
-}
-
-.hero-card {
-  padding: 20px 10px !important;
-}
-
-.hero-subtitle {
-  font-size: 24px;
-  font-weight: 400;
-}
-
-.card-box {
-  padding: 10px 10px;
-}
-
-.card-text {
-  font-weight: 800;
-}
-
-.hero-link {
-  font-size: 20px;
-}
-
-.link-text {
-  margin-right: 10px;
-  font-weight: 500;
 }
 
 ion-button {
@@ -157,5 +195,43 @@ ion-button {
   --box-shadow: 0px 0px;
   --padding-top: 25px;
   --padding-bottom: 25px;
+}
+
+.image {
+  width: 96px;
+}
+
+.greeting {
+  color: var(--ion-color-primary);
+  font-weight: 800;
+}
+
+.section {
+  margin: 30px 0px 0px;
+}
+
+ion-input.passcode {
+  --placeholder-color: var(--ion-color-primary);
+  --placeholder-font-weight: 800;
+  font-size: 24px;
+}
+
+.kbd {
+  font-size: 45px;
+  font-weight: 900;
+  margin: 5px 0px;
+}
+
+.kbd-logout {
+  font-size: 16px;
+  color: var(--ion-color-success);
+}
+
+.clear {
+  color: #eb445a;
+}
+
+.kbd:hover {
+  color: var(--ion-color-primary);
 }
 </style>
