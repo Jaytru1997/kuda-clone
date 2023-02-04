@@ -15,17 +15,17 @@
     </ion-row>
     <ion-row class="ion-margin-top">
       <router-link to="/authed/dashboard"
-        ><ion-button :class="`${active} ion-text-capitalize tab-btn spend`"
+        ><ion-button class="ion-text-capitalize tab-btn spend"
           >Spend</ion-button
         ></router-link
       >
       <router-link to="/authed/dashboard/save"
-        ><ion-button :class="`${active} ion-text-capitalize tab-btn save`"
+        ><ion-button class="ion-text-capitalize tab-btn save"
           >Save</ion-button
         ></router-link
       >
       <router-link to="/authed/dashboard/borrow"
-        ><ion-button :class="`${active} ion-text-capitalize tab-btn borrow`"
+        ><ion-button class="ion-text-capitalize tab-btn borrow"
           >Borrow</ion-button
         ></router-link
       >
