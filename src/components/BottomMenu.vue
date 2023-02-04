@@ -114,7 +114,25 @@ export default {
       };
       activeSwitch("home");
     } else if (currentRoute.includes("pay")) {
-      console.log(currentRoute);
+      const activeSwitch = (target) => {
+        this.appRoutes[target].mode = "active";
+      };
+      activeSwitch("pay");
+    } else if (currentRoute.includes("invest")) {
+      const activeSwitch = (target) => {
+        this.appRoutes[target].mode = "active";
+      };
+      activeSwitch("invest");
+    } else if (currentRoute.includes("cards")) {
+      const activeSwitch = (target) => {
+        this.appRoutes[target].mode = "active";
+      };
+      activeSwitch("cards");
+    } else if (currentRoute.includes("more")) {
+      const activeSwitch = (target) => {
+        this.appRoutes[target].mode = "active";
+      };
+      activeSwitch("more");
     }
   },
 };

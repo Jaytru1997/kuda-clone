@@ -6,7 +6,7 @@ import DashboardPage from "../views/authed/DashboardPage.vue";
 import PasscodePage from "../views/authed/PasscodePage.vue";
 import SavingPage from "../views/authed/SavingPage.vue";
 import BorrowPage from "../views/authed/BorrowPage.vue";
-// import LoadingPage from "../components/LoadingPage.vue";
+import PaymentPage from "../views/authed/PaymentPage.vue";
 
 const routes = [
   {
@@ -52,6 +52,11 @@ const routes = [
     path: "/authed/dashboard/borrow",
     name: "BorrowPage",
     component: BorrowPage,
+  },
+  {
+    path: "/authed/pay",
+    name: "PaymentPage",
+    component: PaymentPage,
   },
 ];
 
