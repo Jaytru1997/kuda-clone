@@ -4,6 +4,7 @@ import LoginPage from "../views/LoginPage.vue";
 import RegisterPage from "../views/RegisterPage.vue";
 import DashboardPage from "../views/authed/DashboardPage.vue";
 import PasscodePage from "../views/authed/PasscodePage.vue";
+import SavingPage from "../views/authed/SavingPage.vue";
 // import LoadingPage from "../components/LoadingPage.vue";
 
 const routes = [
@@ -40,6 +41,11 @@ const routes = [
     path: "/authed/dashboard",
     name: "UserDashboard",
     component: DashboardPage,
+  },
+  {
+    path: "/authed/dashboard/save",
+    name: "SavingPage",
+    component: SavingPage,
   },
 ];
 
