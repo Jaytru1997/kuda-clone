@@ -14,30 +14,27 @@
       </ion-col>
     </ion-row>
     <ion-row class="ion-margin-top">
-      <ion-button class="ion-text-capitalize tab-btn spend">Spend</ion-button>
-      <ion-button class="ion-text-capitalize tab-btn save">Save</ion-button>
-      <ion-button class="ion-text-capitalize tab-btn borrow">Borrow</ion-button>
-    </ion-row>
-
-    <ion-row class="ion-margin-top">
-      <ion-col size="12" class="profile"
-        ><img src="../../assets/us_flag.svg" alt="" class="flag" /> U.S
-        Dollar</ion-col
+      <router-link to="/authed/dashboard"
+        ><ion-button class="ion-text-capitalize tab-btn spend"
+          >Spend</ion-button
+        ></router-link
       >
-    </ion-row>
-    <ion-row class="ion-align-items-center balance-section">
-      <ion-col size="10">$0.00</ion-col>
-      <ion-col size="2" class="ion-text-end"
-        ><ion-icon :icon="ellipsisHorizontalCircleSharp" color="dark"></ion-icon
-      ></ion-col>
+      <router-link to="/authed/dashboard/save"
+        ><ion-button class="ion-text-capitalize tab-btn save"
+          >Save</ion-button
+        ></router-link
+      >
+      <router-link to="/authed/dashboard/borrow"
+        ><ion-button class="ion-text-capitalize tab-btn borrow"
+          >Borrow</ion-button
+        ></router-link
+      >
     </ion-row>
   </ion-grid>
 </template>
 
 <script>
-import { IonGrid, IonRow, IonCol, IonButton, IonIcon } from "@ionic/vue";
-
-import { ellipsisHorizontalCircleSharp } from "ionicons/icons";
+import { IonGrid, IonRow, IonCol, IonButton } from "@ionic/vue";
 
 export default {
   name: "DashboardTabs",
@@ -46,12 +43,9 @@ export default {
     IonRow,
     IonCol,
     IonButton,
-    IonIcon,
   },
   data() {
-    return {
-      ellipsisHorizontalCircleSharp,
-    };
+    return {};
   },
 };
 </script>
@@ -86,14 +80,5 @@ export default {
 
 .borrow {
   color: #3dc2ff;
-}
-
-.flag {
-  width: 24px;
-}
-
-.balance-section {
-  font-size: 32px;
-  font-weight: 700;
 }
 </style>

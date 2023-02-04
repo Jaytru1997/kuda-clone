@@ -5,6 +5,7 @@
     <ion-content :fullscreen="true">
       <div id="container">
         <DashboardTabs />
+        <BalanceCard />
         <CurrencyOperationsTab />
         <TransactionHistoryTabs />
       </div>
@@ -17,6 +18,7 @@
 import { IonContent, IonPage } from "@ionic/vue";
 
 import DashboardTabs from "../../components/user/DashboardTabs";
+import BalanceCard from "@/components/user/BalanceCard.vue";
 import CurrencyOperationsTab from "../../components/user/CurrencyOperationsTab.vue";
 import TransactionHistoryTabs from "../../components/user/TransactionHistory.vue";
 import BottomMenu from "@/components/BottomMenu.vue";
@@ -27,6 +29,7 @@ export default {
     IonContent,
     IonPage,
     DashboardTabs,
+    BalanceCard,
     CurrencyOperationsTab,
     TransactionHistoryTabs,
     BottomMenu,
