@@ -7,6 +7,7 @@ import PasscodePage from "../views/authed/PasscodePage.vue";
 import SavingPage from "../views/authed/SavingPage.vue";
 import BorrowPage from "../views/authed/BorrowPage.vue";
 import PaymentPage from "../views/authed/PaymentPage.vue";
+import OtherBankPay from "../views/authed/OtherBankPay.vue";
 
 const routes = [
   {
@@ -57,6 +58,16 @@ const routes = [
     path: "/authed/pay",
     name: "PaymentPage",
     component: PaymentPage,
+  },
+  {
+    path: "/authed/pay/peopletrust",
+    name: "PeopleTrustPay",
+    component: PaymentPage,
+  },
+  {
+    path: "/authed/pay/otherbank",
+    name: "OtherBankPay",
+    component: OtherBankPay,
   },
 ];
 
