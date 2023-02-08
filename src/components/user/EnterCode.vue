@@ -1,15 +1,15 @@
 <template>
   <ion-page>
-    <LoadingPage v-if="isLoading" />
-
     <ion-content :fullscreen="true">
       <div id="container">
         <ion-grid>
           <ion-row class="ion-align-items-center ion-margin-top">
             <ion-col size="12" class="ion-text-center">
               <img src="../../assets/globe_coloured.svg" alt="" class="image" />
-              <h2 class="greeting">Welcome Back</h2>
-              <p class="user">John Doe</p>
+              <h2 class="greeting">Transaction PIN</h2>
+              <p class="user">
+                {{ `Enter ${pin.name} to complete transaction` }}
+              </p>
             </ion-col>
           </ion-row>
 
@@ -17,7 +17,7 @@
           <ion-row class="ion-align-items-center section">
             <ion-col size="12" class="ion-text-center"
               ><ion-icon :icon="lockClosed" color="success"></ion-icon>
-              Passcode</ion-col
+              {{ pin.name }}</ion-col
             >
             <ion-input
               placeholder="&cir;    &cir;    &cir;    &cir;    &cir;    &cir;"
@@ -60,7 +60,7 @@
               ><div class="kbd kbd-input">9</div></ion-col
             >
             <ion-col size="4" class="ion-text-center"
-              ><div class="kbd kbd-logout">Sign Out</div></ion-col
+              ><div class="kbd kbd-logout">Cancel</div></ion-col
             >
             <ion-col size="4" class="ion-text-center"
               ><div class="kbd kbd-input">0</div></ion-col
@@ -79,6 +79,7 @@
       </div>
     </ion-content>
   </ion-page>
+  <SuccessPage message="Transaction Successful" v-if="isSuccessful" />
 </template>
 
 <script>
@@ -95,10 +96,10 @@ import {
 } from "@ionic/vue";
 import { lockClosed, backspace } from "ionicons/icons";
 
-import LoadingPage from "../../components/LoadingPage";
+import SuccessPage from "@/components/user/successPage.vue";
 
 export default {
-  name: "PasscodePage",
+  name: "EnterCode",
   components: {
     IonContent,
     IonPage,
@@ -107,17 +108,21 @@ export default {
     IonInput,
     IonIcon,
     IonGrid,
-    LoadingPage,
+    SuccessPage,
   },
   data() {
     return {
       lockClosed,
       backspace,
-      isLoading: true,
+      isSuccessful: false,
+      pin: {
+        name: "PIN",
+        code: "",
+      },
     };
   },
   methods: {
-    grabInputValue: (e) => {
+    grabInputValue(e) {
       const router = useRouter();
       let inputBar = document.querySelector(".passcode");
       e.addEventListener("click", () => {
@@ -130,11 +135,11 @@ export default {
           isComplete = true;
         }
         if (isComplete) {
+          this.isSuccessful = true;
           setTimeout(() => {
-            // alert(`Your passcode is ${inputBar.value}`);
             router.push("/authed/dashboard");
             inputBar.value = ""; //clear password from UI
-          }, 200);
+          }, 1000);
         }
       });
     },
@@ -150,10 +155,6 @@ export default {
     },
   },
   mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
-
     const inputs = document.querySelectorAll(".kbd-input");
     const del = document.querySelector(".kbd-delete");
     inputs.forEach((el) => {

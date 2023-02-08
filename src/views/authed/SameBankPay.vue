@@ -90,21 +90,6 @@
                 maxlength="12"
               ></ion-input>
             </ion-col>
-            <ion-col size="12">
-              <ion-label>Routing Number</ion-label>
-              <ion-input
-                placeholder="Enter Routing Number"
-                type="text"
-                v-model="routingNumber"
-                value=""
-                inputmode="text"
-                name="routingNumber"
-                required
-                enterkeyhint="done"
-                maxlength="9"
-                minlength="9"
-              ></ion-input>
-            </ion-col>
             <ion-col class="next-btn" size="12"
               ><ion-button
                 size="medium"
@@ -195,7 +180,7 @@ import BottomMenu from "@/components/BottomMenu.vue";
 import EnterCode from "@/components/user/EnterCode.vue";
 
 export default {
-  name: "OtherBankPay",
+  name: "SameBankPay",
   components: {
     IonHeader,
     IonContent,
@@ -220,13 +205,12 @@ export default {
     return {
       chevronBackOutline,
       sendSharp,
-      hasSelected: false,
+      hasSelected: true,
       hasSetAccount: false,
       enterOTP: false,
-      selection: "",
+      selection: "People Trust Bank",
       accountHolder: "",
       accountNumber: "",
-      routingNumber: "",
       amount: 0,
       banks: [],
       results: [],
@@ -336,8 +320,8 @@ a {
 }
 
 /* .input-currency {
-  font-weight: 700;
-} */
+    font-weight: 700;
+  } */
 
 .trx-footer {
   position: absolute;

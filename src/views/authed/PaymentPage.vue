@@ -58,6 +58,8 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonIcon,
+  IonText,
 } from "@ionic/vue";
 
 import { chevronForwardOutline } from "ionicons/icons";
@@ -74,18 +76,15 @@ export default {
     IonRow,
     IonCol,
     BottomMenu,
+    IonIcon,
+    IonText,
   },
   data() {
     return {
       chevronForwardOutline,
-      isLoading: true,
     };
   },
-  mounted() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
-  },
+  mounted() {},
 };
 </script>
 
