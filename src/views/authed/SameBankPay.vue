@@ -218,8 +218,7 @@ export default {
   },
   methods: {
     goBack() {
-      // history.go(-1);
-      this.hasSelected = false;
+      history.go(-1);
     },
     proceedToAmount() {
       this.hasSetAccount = true;
