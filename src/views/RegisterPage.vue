@@ -26,73 +26,82 @@
           </ion-col>
           <ion-col size="12"> </ion-col>
         </ion-row>
-        <v-form>
-          <ion-row class="login-form">
-            <ion-col size="12">
-              <ion-label>Email Address</ion-label>
-              <ion-input
-                placeholder="example@gmail.com"
-                type="email"
-                inputmode="email"
-                value=""
-                name="email"
-                required
-                autocomplete
-                enterkeyhint="next"
-                pattern="/^(?=.{1,254}$)(?=.{1,64}@)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
-              ></ion-input>
-            </ion-col>
-            <ion-col size="12">
-              <ion-label>Password</ion-label>
-              <ion-input
-                placeholder="**********"
-                type="password"
-                value=""
-                inputmode="text"
-                name="password"
-                required
-                enterkeyhint="next"
-                minlength="8"
-              ></ion-input>
-            </ion-col>
-            <ion-col size="12">
-              <ion-label>Confirm Password</ion-label>
-              <ion-input
-                placeholder="**********"
-                type="password"
-                value=""
-                inputmode="text"
-                name="conpassword"
-                required
-                enterkeyhint="next"
-                minlength="8"
-              ></ion-input>
-            </ion-col>
-            <ion-col size="12"
-              ><ion-button
-                size="medium"
-                expand="block"
-                color="primary"
-                class="signup"
-                >Register</ion-button
-              ></ion-col
+        <ion-row class="login-form">
+          <ion-col size="12">
+            <ion-label>Email Address</ion-label>
+            <ion-input
+              placeholder="example@gmail.com"
+              type="email"
+              inputmode="email"
+              value=""
+              name="email"
+              required
+              autocomplete
+              enterkeyhint="next"
+              pattern="/^(?=.{1,254}$)(?=.{1,64}@)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
+            ></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label>Password</ion-label>
+            <ion-input
+              placeholder="**********"
+              type="password"
+              value=""
+              inputmode="text"
+              name="password"
+              required
+              enterkeyhint="next"
+              minlength="8"
+            ></ion-input>
+          </ion-col>
+          <ion-col size="12">
+            <ion-label>Confirm Password</ion-label>
+            <ion-input
+              placeholder="**********"
+              type="password"
+              value=""
+              inputmode="text"
+              name="conpassword"
+              required
+              enterkeyhint="next"
+              minlength="8"
+            ></ion-input>
+          </ion-col>
+          <ion-col size="12"
+            ><ion-button
+              size="medium"
+              expand="block"
+              color="primary"
+              class="signup"
+              >Register</ion-button
+            ></ion-col
+          >
+          <ion-col size="12">
+            <router-link to="/login"
+              ><p class="forgot-text">
+                Have an account? <span class="reset">Log In</span>
+              </p></router-link
             >
-            <ion-col size="12">
-              <router-link to="/login"
-                ><p class="forgot-text">
-                  Have an account? <span class="reset">Log In</span>
-                </p></router-link
-              >
-            </ion-col>
-          </ion-row>
-        </v-form>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </div>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonIcon, IonText, IonButton } from "@ionic/vue";
+import {
+  IonPage,
+  IonHeader,
+  IonIcon,
+  IonText,
+  IonButton,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonLabel,
+  IonInput,
+} from "@ionic/vue";
 import { chevronBackOutline } from "ionicons/icons";
 
 export default {
@@ -103,6 +112,11 @@ export default {
     IonIcon,
     IonText,
     IonButton,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonLabel,
+    IonInput,
   },
   data() {
     return {

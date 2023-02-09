@@ -62,7 +62,7 @@ const routes = [
   },
   {
     path: "/authed/pay/peopletrust",
-    name: "PeopleTrustPay",
+    name: "SameBankPay",
     component: SameBankPay,
   },
   {

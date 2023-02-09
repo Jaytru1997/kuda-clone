@@ -47,7 +47,7 @@
         </ion-list>
 
         <!--ENTER ACCOUNT DETAILS SECTION-->
-        <v-form v-if="hasSelected && !hasSetAccount">
+        <div v-if="hasSelected && !hasSetAccount">
           <ion-row class="login-form">
             <ion-col size="12">
               <ion-label>Bank</ion-label>
@@ -116,7 +116,7 @@
               ></ion-col
             >
           </ion-row>
-        </v-form>
+        </div>
       </div>
 
       <!--ENTER AMOUNT SECTION-->

@@ -33,10 +33,11 @@
             </ion-col>
 
             <ion-col size="12" size-lg="8" class="hero-card">
-              <router-link to="/authed/dashboard/overdraft"
+              <router-link to="#"
                 ><ion-card class="card-box">
                   <ion-row class="ion-align-items-center">
                     <ion-col size="10">
+                      <ion-badge color="warning">coming soon</ion-badge>
                       <ion-text color="dark"
                         ><p class="card-text">Overdraft</p></ion-text
                       >

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { IonGrid, IonRow, IonCol } from "@ionic/vue";
+import { IonGrid, IonRow, IonCol, IonText } from "@ionic/vue";
 
 import { ellipsisHorizontalCircleSharp } from "ionicons/icons";
 
@@ -46,6 +46,7 @@ export default {
     IonGrid,
     IonRow,
     IonCol,
+    IonText,
   },
   data() {
     return {
