@@ -65,7 +65,15 @@
 </template>
 
 <script>
-import { IonContent, IonPage } from "@ionic/vue";
+import {
+  IonContent,
+  IonPage,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonBadge,
+  IonText,
+} from "@ionic/vue";
 
 import DashboardTabs from "../../components/user/DashboardTabs";
 import BorrowBalanceCard from "../../components/user/BorrowBalanceCard.vue";
@@ -79,6 +87,11 @@ export default {
     DashboardTabs,
     BorrowBalanceCard,
     BottomMenu,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonBadge,
+    IonText,
   },
   data() {
     return {
