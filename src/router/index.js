@@ -11,6 +11,7 @@ import OtherBankPay from "../views/authed/OtherBankPay.vue";
 import SameBankPay from "../views/authed/SameBankPay.vue";
 import InvestPage from "../views/authed/InvestPage.vue";
 import MorePage from "../views/authed/MorePage.vue";
+import AccountDetails from "../views/authed/AccountDetails.vue";
 
 const routes = [
   {
@@ -81,6 +82,11 @@ const routes = [
     path: "/authed/more",
     name: "MorePage",
     component: MorePage,
+  },
+  {
+    path: "/authed/more/account",
+    name: "AccountDetails",
+    component: AccountDetails,
   },
 ];
 
