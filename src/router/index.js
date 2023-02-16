@@ -71,6 +71,11 @@ const routes = [
     component: () => import("../views/authed/MorePage.vue"),
   },
   {
+    path: "/authed/more/help",
+    name: "HelpPage",
+    component: () => import("../views/authed/HelpPage.vue"),
+  },
+  {
     path: "/authed/more/account",
     name: "AccountDetails",
     component: () => import("../views/authed/AccountDetails.vue"),

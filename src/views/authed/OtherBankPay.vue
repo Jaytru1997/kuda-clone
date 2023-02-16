@@ -277,6 +277,17 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (min-width: 768px) {
+  ion-header {
+    padding: 0px 300px !important;
+    box-shadow: 6px 13px 3px -4px rgba(230, 230, 230, 0.33);
+  }
+
+  #container {
+    display: flex;
+    padding: 0px 300px !important;
+  }
+}
 .searchbar {
   --box-shadow: 1px 1px 1px 0.5px;
   --placeholder-color: var(--ion-color-medium);

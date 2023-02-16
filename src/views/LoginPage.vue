@@ -86,6 +86,8 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonInput,
+  IonLabel,
 } from "@ionic/vue";
 import { chevronBackOutline } from "ionicons/icons";
 
@@ -100,6 +102,8 @@ export default {
     IonGrid,
     IonRow,
     IonCol,
+    IonInput,
+    IonLabel,
   },
   data() {
     return {
