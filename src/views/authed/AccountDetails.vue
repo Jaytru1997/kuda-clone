@@ -12,7 +12,11 @@
             ></ion-icon>
           </ion-col>
           <ion-col size="10" class="ion-text-center" pull="1">
-            <ion-text><p class="heading">Account Details</p></ion-text>
+            <ion-text
+              ><p class="heading">
+                Account Details
+                <img src="../../assets/us_flag.svg" class="flag" alt="" /></p
+            ></ion-text>
           </ion-col>
           <!-- </ion-toolbar> -->
         </ion-row>
@@ -36,7 +40,7 @@
                 <ion-card-content>
                   <ion-row class="ion-align-items-center">
                     <ion-col size="10">
-                      <p>Your Account Number</p>
+                      <p class="account-number-heading">Your Account Number</p>
                       <p class="account-number">2000000000</p>
                     </ion-col>
                     <ion-col siz="2" class="copy">
@@ -50,16 +54,13 @@
 
           <router-link to="/authed/more/account/name">
             <ion-row class="ion-align-items-center">
-              <ion-col size="1">
-                <ion-icon :icon="card" color="secondary"></ion-icon>
-              </ion-col>
-              <ion-col size="10">
+              <ion-col size="11">
                 <ion-text>
                   <h4>John Doe</h4>
                   <p>Account Name</p>
                 </ion-text>
               </ion-col>
-              <ion-col size="1">
+              <ion-col size="1" class="ion-text-end">
                 <ion-icon :icon="chevronForward"></ion-icon>
               </ion-col>
             </ion-row>
@@ -67,16 +68,69 @@
 
           <router-link to="/authed/more/account/address">
             <ion-row class="ion-align-items-center">
-              <ion-col size="1">
-                <ion-icon :icon="card" color="secondary"></ion-icon>
-              </ion-col>
-              <ion-col size="10">
+              <ion-col size="11">
                 <ion-text>
                   <h4>1, Maine Street</h4>
                   <p>Address</p>
                 </ion-text>
               </ion-col>
-              <ion-col size="1">
+              <ion-col size="1" class="ion-text-end">
+                <ion-icon :icon="chevronForward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </router-link>
+
+          <router-link to="/authed/more/account/phone">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="11">
+                <ion-text>
+                  <h4>+19436343154</h4>
+                  <p>Phone</p>
+                </ion-text>
+              </ion-col>
+              <ion-col size="1" class="ion-text-end">
+                <ion-icon :icon="chevronForward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </router-link>
+
+          <router-link to="/authed/more/account/email">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="11">
+                <ion-text>
+                  <h4>johndoe@gmail.com</h4>
+                  <p>Email Address</p>
+                </ion-text>
+              </ion-col>
+              <ion-col size="1" class="ion-text-end">
+                <ion-icon :icon="chevronForward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </router-link>
+
+          <router-link to="/authed/more/account/id">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="11">
+                <ion-text>
+                  <h4>Drivers License</h4>
+                  <p>Identification</p>
+                </ion-text>
+              </ion-col>
+              <ion-col size="1" class="ion-text-end">
+                <ion-icon :icon="chevronForward"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </router-link>
+
+          <router-link to="/authed/more/account/kin">
+            <ion-row class="ion-align-items-center">
+              <ion-col size="11">
+                <ion-text>
+                  <h4>Jane Doe</h4>
+                  <p>Next Of Kin</p>
+                </ion-text>
+              </ion-col>
+              <ion-col size="1" class="ion-text-end">
                 <ion-icon :icon="chevronForward"></ion-icon>
               </ion-col>
             </ion-row>
@@ -142,8 +196,18 @@ export default {
     padding: 0px 300px !important;
   }
 }
+
+.heading {
+  font-weight: 700;
+  color: var(--ion-color-primary);
+}
+
 .logo {
   width: 64px;
+}
+
+.flag {
+  width: 24px;
 }
 
 .card {
@@ -163,9 +227,14 @@ export default {
   color: var(--ion-color-success);
 }
 
-p:not(.account-number) {
+p:not(.account-number, .account-number-heading, .heading) {
   margin-top: -10px;
   color: var(--ion-color-medium);
+  font-size: 14px;
+}
+
+h4 {
+  font-weight: 700;
 }
 
 a {

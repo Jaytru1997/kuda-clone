@@ -1,17 +1,4 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
-import HomePage from "../views/HomePage.vue";
-import LoginPage from "../views/LoginPage.vue";
-import RegisterPage from "../views/RegisterPage.vue";
-import DashboardPage from "../views/authed/DashboardPage.vue";
-import PasscodePage from "../views/authed/PasscodePage.vue";
-import SavingPage from "../views/authed/SavingPage.vue";
-import BorrowPage from "../views/authed/BorrowPage.vue";
-import PaymentPage from "../views/authed/PaymentPage.vue";
-import OtherBankPay from "../views/authed/OtherBankPay.vue";
-import SameBankPay from "../views/authed/SameBankPay.vue";
-import InvestPage from "../views/authed/InvestPage.vue";
-import MorePage from "../views/authed/MorePage.vue";
-import AccountDetails from "../views/authed/AccountDetails.vue";
 
 const routes = [
   {
@@ -20,73 +7,78 @@ const routes = [
   },
   {
     path: "/home",
-    name: "Home",
-    component: HomePage,
+    name: "HomePage",
+    component: () => import("../views/HomePage.vue"),
   },
   {
     path: "/login",
-    name: "Login",
-    component: LoginPage,
+    name: "LoginPage",
+    component: () => import("../views/LoginPage.vue"),
   },
   {
     path: "/register",
-    name: "Register",
-    component: RegisterPage,
+    name: "RegisterPage",
+    component: () => import("../views/RegisterPage.vue"),
   },
   {
     path: "/forgot-password",
     name: "ForgotPassword",
-    component: LoginPage,
+    component: () => import("../views/LoginPage.vue"),
   },
   {
     path: "/passcode",
     name: "PasscodePage",
-    component: PasscodePage,
+    component: () => import("../views/authed/PasscodePage.vue"),
   },
   {
     path: "/authed/dashboard",
     name: "UserDashboard",
-    component: DashboardPage,
+    component: () => import("../views/authed/DashboardPage.vue"),
   },
   {
     path: "/authed/dashboard/save",
     name: "SavingPage",
-    component: SavingPage,
+    component: () => import("../views/authed/SavingPage.vue"),
   },
   {
     path: "/authed/dashboard/borrow",
     name: "BorrowPage",
-    component: BorrowPage,
+    component: () => import("../views/authed/BorrowPage.vue"),
   },
   {
     path: "/authed/pay",
     name: "PaymentPage",
-    component: PaymentPage,
+    component: () => import("../views/authed/PaymentPage.vue"),
   },
   {
     path: "/authed/pay/peopletrust",
     name: "SameBankPay",
-    component: SameBankPay,
+    component: () => import("../views/authed/SameBankPay.vue"),
   },
   {
     path: "/authed/pay/otherbank",
     name: "OtherBankPay",
-    component: OtherBankPay,
+    component: () => import("../views/authed/OtherBankPay.vue"),
   },
   {
     path: "/authed/invest",
     name: "InvestPage",
-    component: InvestPage,
+    component: () => import("../views/authed/InvestPage.vue"),
   },
   {
     path: "/authed/more",
     name: "MorePage",
-    component: MorePage,
+    component: () => import("../views/authed/MorePage.vue"),
   },
   {
     path: "/authed/more/account",
     name: "AccountDetails",
-    component: AccountDetails,
+    component: () => import("../views/authed/AccountDetails.vue"),
+  },
+  {
+    path: "/authed/more/account/:detail",
+    name: "AccountDetail",
+    component: () => import("../views/authed/AccountDetail.vue"),
   },
 ];
 
