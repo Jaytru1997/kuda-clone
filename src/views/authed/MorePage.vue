@@ -65,7 +65,7 @@
               </ion-col>
             </ion-row>
           </router-link>
-          <router-link to="/authed/more/security">
+          <router-link to="#">
             <ion-row class="ion-align-items-center">
               <ion-col size="1">
                 <ion-icon :icon="lockClosed" color="warning"></ion-icon>
@@ -81,7 +81,7 @@
               </ion-col>
             </ion-row>
           </router-link>
-          <router-link to="/authed/more/legal">
+          <router-link to="#">
             <ion-row class="ion-align-items-center">
               <ion-col size="1">
                 <ion-icon :icon="document" color="danger"></ion-icon>
