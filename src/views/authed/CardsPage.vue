@@ -87,6 +87,27 @@
             <ion-icon :icon="chevronForward" size="small"></ion-icon>
           </ion-fab-button>
         </ion-fab>
+
+        <ion-list v-for="card in cards" :key="card.number">
+          <ion-list-item v-if="isList">
+            <ion-grid>
+              <ion-row class="ion-align-items-baseline">
+                <ion-col size="1">
+                  <ion-icon :icon="cardOutline" color="primary"></ion-icon>
+                </ion-col>
+                <ion-col size="9">
+                  <h4 class="card-name">{{ card.name }}</h4>
+                  <p class="card-number">{{ card.number }}</p>
+                </ion-col>
+                <ion-col size="2">
+                  <p class="validity">
+                    Valid Thru <span>{{ card.validity }}</span>
+                  </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-list-item>
+        </ion-list>
       </div>
     </ion-content>
   </ion-page>
@@ -105,6 +126,9 @@ import {
   IonSegmentButton,
   IonFab,
   IonFabButton,
+  IonCol,
+  IonList,
+  IonListItem,
   //   IonLabel,
 } from "@ionic/vue";
 import {
@@ -115,6 +139,7 @@ import {
   add,
   chevronBack,
   chevronForward,
+  cardOutline,
 } from "ionicons/icons";
 export default {
   name: "AddCirclesPage",
@@ -130,6 +155,9 @@ export default {
     IonSegmentButton,
     IonFab,
     IonFabButton,
+    IonCol,
+    IonList,
+    IonListItem,
     // IonLabel,
   },
   data() {
@@ -138,6 +166,7 @@ export default {
       chevronBack,
       addCircle,
       chevronForward,
+      cardOutline,
       card,
       list,
       add,
