@@ -44,7 +44,12 @@
                       <p class="account-number">2000000000</p>
                     </ion-col>
                     <ion-col siz="2" class="copy">
-                      COPY <ion-icon :icon="copy" color="success"></ion-icon>
+                      COPY
+                      <ion-icon
+                        :icon="copy"
+                        color="success"
+                        @click="copyPhrase('2000000000')"
+                      ></ion-icon>
                     </ion-col>
                   </ion-row>
                 </ion-card-content>
@@ -112,8 +117,8 @@
             <ion-row class="ion-align-items-center">
               <ion-col size="11">
                 <ion-text>
-                  <h4>Drivers License</h4>
-                  <p>Identification</p>
+                  <h4>ID</h4>
+                  <p>Government Issued ID</p>
                 </ion-text>
               </ion-col>
               <ion-col size="1" class="ion-text-end">
@@ -155,6 +160,7 @@ import {
   IonCardContent,
 } from "@ionic/vue";
 import { chevronBackOutline, copy, chevronForward } from "ionicons/icons";
+import copyPhrase from "../../mixins/copy";
 export default {
   name: "AccountDetails",
   components: {
@@ -169,6 +175,7 @@ export default {
     IonCard,
     IonCardContent,
   },
+  mixins: [copyPhrase],
   data() {
     return {
       chevronBackOutline,
@@ -213,7 +220,7 @@ export default {
 .card {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: var(--ion-color-step-950);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }

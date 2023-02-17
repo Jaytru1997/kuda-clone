@@ -86,6 +86,11 @@ const routes = [
     component: () => import("../views/authed/SecurityPage.vue"),
   },
   {
+    path: "/authed/more/cards",
+    name: "Cards",
+    component: () => import("../views/authed/CardsPage.vue"),
+  },
+  {
     path: "/authed/more/account",
     name: "AccountDetails",
     component: () => import("../views/authed/AccountDetails.vue"),

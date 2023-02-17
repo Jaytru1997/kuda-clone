@@ -1,4 +1,3 @@
-<script>
 export default {
   methods: {
     /*
@@ -110,4 +109,3 @@ Created by PDFAntiCopy.com
     },
   },
 };
-</script>
