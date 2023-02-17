@@ -66,6 +66,11 @@ const routes = [
     component: () => import("../views/authed/InvestPage.vue"),
   },
   {
+    path: "/authed/cards",
+    name: "CardsPage",
+    component: () => import("../views/authed/CardsPage.vue"),
+  },
+  {
     path: "/authed/more",
     name: "MorePage",
     component: () => import("../views/authed/MorePage.vue"),
@@ -74,6 +79,11 @@ const routes = [
     path: "/authed/more/help",
     name: "HelpPage",
     component: () => import("../views/authed/HelpPage.vue"),
+  },
+  {
+    path: "/authed/more/security",
+    name: "SecurityPage",
+    component: () => import("../views/authed/SecurityPage.vue"),
   },
   {
     path: "/authed/more/account",
