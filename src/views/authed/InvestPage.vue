@@ -11,7 +11,7 @@
       </ion-grid>
     </ion-header>
     <ion-content :fullscreen="true">
-      <div id="conatainer">
+      <div id="container">
         <ion-grid>
           <ion-row class="ion-align-items-center ion-text-center">
             <ion-col size="2"
@@ -34,7 +34,7 @@
           </ion-row>
         </ion-grid>
         <ion-grid>
-          <ion-row>
+          <ion-row class="ion-align-items-center">
             <ion-col size="12" class="ion-text-center"
               ><ion-icon
                 :icon="barChart"
@@ -54,8 +54,7 @@
                 </p>
               </ion-text>
             </ion-col>
-            <ion-col></ion-col>
-            <ion-col size="12" size-lg="8" class="hero-card">
+            <ion-col size="12" size-lg="8" push-lg="2" class="hero-card">
               <router-link to="#"
                 ><ion-card class="card-box">
                   <ion-row class="ion-align-items-center">
@@ -78,7 +77,7 @@
                 </ion-card>
               </router-link>
             </ion-col>
-            <ion-col size="12" size-lg="8" class="hero-card">
+            <ion-col size="12" size-lg="8" push-lg="2" class="hero-card">
               <router-link to="#"
                 ><ion-card class="card-box">
                   <ion-row class="ion-align-items-center">
