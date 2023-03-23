@@ -119,7 +119,6 @@ import {
   IonHeader,
   IonGrid,
   IonRow,
-  //   IonCol,
   IonIcon,
   IonContent,
   IonSegment,
@@ -129,7 +128,6 @@ import {
   IonCol,
   IonList,
   IonListItem,
-  //   IonLabel,
 } from "@ionic/vue";
 import {
   chevronBackOutline,
@@ -158,7 +156,6 @@ export default {
     IonCol,
     IonList,
     IonListItem,
-    // IonLabel,
   },
   data() {
     return {
