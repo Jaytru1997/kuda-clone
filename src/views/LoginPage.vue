@@ -166,7 +166,7 @@ export default {
           }),
         });
 
-        if (response.status === 401) {
+        if (response.status >= 400) {
           this.isLoading = false;
           this.isError = true;
           setTimeout(() => {
@@ -178,11 +178,14 @@ export default {
 
         if (response.status === 200 && data) {
           this.isLoading = false;
+          const token = this.encryptData(data.token);
+          const u_id = this.encryptData(data.data._id);
+          data.data._id = u_id;
           this.userStore.populateState(data.data);
           this.isAuthed = true;
-          const token = this.encryptData(data.token);
           await this.storage.set("isAuthed", this.isAuthed);
-          await this.storage.set("token", token);
+          await this.storage.set("u_token", token);
+          await this.storage.set("u_id", u_id);
           setTimeout(() => {
             router.push("/authed/dashboard");
           }, 500);
@@ -212,6 +215,10 @@ export default {
     });
     await storage.create();
     this.storage = storage;
+    const authStatus = await storage.get("isAuthed");
+    if (authStatus) {
+      router.push("/authed/dashboard");
+    }
     // console.log(storage);
   },
 };

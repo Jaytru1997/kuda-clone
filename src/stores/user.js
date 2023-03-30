@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+
 export const useUserStore = defineStore("user", {
   state: () => ({
     user: {
@@ -35,6 +36,7 @@ export const useUserStore = defineStore("user", {
   getters: {
     //   doubleCount: (state) => state.count * 2,
     getUserData: (state) => state.user,
+    getMainBalance: (state) => state.user.balances.main.amount,
   },
   actions: {
     populateState(ctx) {

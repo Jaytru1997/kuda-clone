@@ -7,7 +7,7 @@
       >
     </ion-row>
     <ion-row class="ion-align-items-center balance-section">
-      <ion-col size="10">$0.00</ion-col>
+      <ion-col size="10">${{ this.balance }}</ion-col>
       <ion-col size="2" class="ion-text-end"
         ><ion-icon :icon="ellipsisHorizontalCircleSharp" color="dark"></ion-icon
       ></ion-col>
@@ -20,6 +20,10 @@ import { IonGrid, IonRow, IonCol, IonIcon } from "@ionic/vue";
 
 import { ellipsisHorizontalCircleSharp } from "ionicons/icons";
 
+import { mapState } from "pinia";
+// import { useSettingsStore } from "@/stores/settings";
+import { useUserStore } from "@/stores/user";
+
 export default {
   name: "BalanceCard",
   components: {
@@ -31,7 +35,17 @@ export default {
   data() {
     return {
       ellipsisHorizontalCircleSharp,
+      balance: 0,
     };
+  },
+  computed: {
+    ...mapState(useUserStore, ["user"]),
+  },
+  mounted() {
+    // console.log("this comes first", this.user, this.balance);
+    setTimeout(() => {
+      this.balance = this.user.balances.main.amount;
+    }, 1000);
   },
 };
 </script>

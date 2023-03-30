@@ -24,8 +24,11 @@ import BottomMenu from "@/components/BottomMenu.vue";
 import errorPage from "@/components/user/errorPage.vue";
 
 import { Drivers, Storage } from "@ionic/storage";
-
 import router from "@/router";
+
+import { mapStores } from "pinia";
+import { useSettingsStore } from "@/stores/settings";
+import { useUserStore } from "@/stores/user";
 
 export default {
   name: "DashboardPage",
@@ -43,7 +46,11 @@ export default {
     return {
       isLoading: true,
       isAuthed: null,
+      storage: null,
     };
+  },
+  computed: {
+    ...mapStores(useUserStore, useSettingsStore),
   },
   mounted() {
     setTimeout(() => {
@@ -56,12 +63,13 @@ export default {
       driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage],
     });
     await storage.create();
+    this.storage = storage;
     const authStatus = await storage.get("isAuthed");
     this.isAuthed = authStatus;
     if (!this.isAuthed) {
       setTimeout(() => {
         router.push("/login");
-      }, 1000);
+      }, 500);
     }
   },
 };
