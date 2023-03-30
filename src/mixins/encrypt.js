@@ -1,5 +1,5 @@
 import CryptoJS from "crypto-js";
-const secret = "c3L@tL$VzaD-XRLM+ZghvF=-TCS*XRD=";
+const secret = "c3L@tLHHtU*$VzaD-XRIILM+ZghvFLL=-TCS*XRD=";
 
 export default {
   methods: {
