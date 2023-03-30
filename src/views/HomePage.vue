@@ -189,7 +189,7 @@ import {
   IonText,
 } from "@ionic/vue";
 
-import LoadingPage from "../components/LoadingPage";
+import LoadingPage from "@/components/LoadingPage";
 
 export default {
   name: "HomePage",

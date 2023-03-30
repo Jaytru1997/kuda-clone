@@ -8,11 +8,7 @@ export const useSettingsStore = defineStore("settings", {
   }),
   getters: {
     //   doubleCount: (state) => state.count * 2,
-    getUrl: (state, mode) => state["url"][mode],
+    getUrl: (state) => state.url,
   },
-  actions: {
-    // increment() {
-    //   this.count++;
-    // },
-  },
+  // actions: {},
 });

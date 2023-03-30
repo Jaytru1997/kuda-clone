@@ -27,5 +27,20 @@ export default {
 
 .logo {
   width: 250px;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 250px;
+  }
+
+  50% {
+    width: 150px;
+  }
+
+  100% {
+    width: 250px;
+  }
 }
 </style>

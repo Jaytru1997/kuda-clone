@@ -1,7 +1,5 @@
 <template>
-  <ion-page>
-    <!-- <LoadingPage v-if="isLoading" /> -->
-
+  <ion-page v-if="isAuthed">
     <ion-content :fullscreen="true">
       <div id="container">
         <DashboardTabs />
@@ -12,6 +10,7 @@
       <BottomMenu />
     </ion-content>
   </ion-page>
+  <errorPage message="You are currently not logged in" v-if="!isAuthed" />
 </template>
 
 <script>
@@ -22,6 +21,11 @@ import BalanceCard from "@/components/user/BalanceCard.vue";
 import CurrencyOperationsTab from "../../components/user/CurrencyOperationsTab.vue";
 import TransactionHistoryTabs from "../../components/user/TransactionHistory.vue";
 import BottomMenu from "@/components/BottomMenu.vue";
+import errorPage from "@/components/user/errorPage.vue";
+
+import { Drivers, Storage } from "@ionic/storage";
+
+import router from "@/router";
 
 export default {
   name: "DashboardPage",
@@ -33,16 +37,32 @@ export default {
     CurrencyOperationsTab,
     TransactionHistoryTabs,
     BottomMenu,
+    errorPage,
   },
   data() {
     return {
       isLoading: true,
+      isAuthed: null,
     };
   },
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
+  },
+  async created() {
+    const storage = new Storage({
+      name: "__peopletrustdb",
+      driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage],
+    });
+    await storage.create();
+    const authStatus = await storage.get("isAuthed");
+    this.isAuthed = authStatus;
+    if (!this.isAuthed) {
+      setTimeout(() => {
+        router.push("/login");
+      }, 1000);
+    }
   },
 };
 </script>

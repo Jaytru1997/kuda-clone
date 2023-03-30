@@ -1,5 +1,6 @@
 <template>
-  <ion-page>
+  <ion-page v-if="!isAuthed && !isError">
+    <LoadingPage v-if="isLoading" />
     <ion-header>
       <ion-grid>
         <ion-row class="ion-align-items-center ion-justify-content-between">
@@ -34,6 +35,7 @@
               type="email"
               inputmode="email"
               value=""
+              v-model="email"
               name="email"
               required
               autocomplete
@@ -47,6 +49,7 @@
               placeholder="**********"
               type="password"
               value=""
+              v-model="password"
               inputmode="text"
               name="password"
               required
@@ -60,6 +63,7 @@
               expand="block"
               color="primary"
               class="signin"
+              @click="login"
               >Sign In</ion-button
             ></ion-col
           >
@@ -74,6 +78,11 @@
       </ion-grid>
     </div>
   </ion-page>
+  <successPage message="Successful" v-if="isAuthed" />
+  <errorPage
+    message="Something happened, try logging in again"
+    v-if="isError"
+  />
 </template>
 
 <script>
@@ -91,6 +100,18 @@ import {
 } from "@ionic/vue";
 import { chevronBackOutline } from "ionicons/icons";
 
+import { mapStores } from "pinia";
+import { useSettingsStore } from "@/stores/settings";
+import { useUserStore } from "@/stores/user";
+
+import successPage from "@/components/user/successPage.vue";
+import errorPage from "@/components/user/errorPage.vue";
+import LoadingPage from "@/components/LoadingPage";
+
+import encrypt from "@/mixins/encrypt";
+import router from "@/router";
+import { Drivers, Storage } from "@ionic/storage";
+
 export default {
   name: "LoginPage",
   components: {
@@ -104,16 +125,94 @@ export default {
     IonCol,
     IonInput,
     IonLabel,
+    successPage,
+    errorPage,
+    LoadingPage,
   },
   data() {
     return {
       chevronBackOutline,
+      email: "",
+      password: "",
+      isLoading: false,
+      isAuthed: false,
+      isError: false,
+      errorMessage: "",
+      storage: null,
     };
   },
+  mixins: [encrypt],
   methods: {
     goBack: () => {
       history.go(-1);
     },
+    async login() {
+      try {
+        this.isLoading = true;
+        const url = this.settingsStore.url.test;
+        //grab input from form
+        const email = this.email;
+        const password = this.password;
+
+        //send request to auth route
+        const response = await fetch(`${url}/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        });
+
+        if (response.status === 401) {
+          this.isLoading = false;
+          this.isError = true;
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        }
+
+        const data = await response.json();
+
+        if (response.status === 200 && data) {
+          this.isLoading = false;
+          this.userStore.populateState(data.data);
+          this.isAuthed = true;
+          const token = this.encryptData(data.token);
+          await this.storage.set("isAuthed", this.isAuthed);
+          await this.storage.set("token", token);
+          setTimeout(() => {
+            router.push("/authed/dashboard");
+          }, 500);
+        } else {
+          this.isLoading = false;
+          this.isError = true;
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        }
+
+        //if successful login in user
+
+        //throw error if unsuccessfuls
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  computed: {
+    ...mapStores(useSettingsStore, useUserStore),
+  },
+  async created() {
+    const storage = new Storage({
+      name: "__peopletrustdb",
+      driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage],
+    });
+    await storage.create();
+    this.storage = storage;
+    // console.log(storage);
   },
 };
 </script>
