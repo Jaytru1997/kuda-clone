@@ -7,20 +7,24 @@
         ></ion-col
       >
     </ion-row>
-    <router-link to="/">
+    <router-link to="/" v-for="trx in trxs" :key="trx._id">
       <ion-row clas="ion-align-items-center">
         <ion-col size="2" class="trx-img">
-          <img src="../../assets/credit_icon.svg" alt="" class="icon" />
+          <img :src="trx.icon" alt="" class="icon" />
         </ion-col>
         <ion-col size="7"
-          ><p class="desc">Credit from Mark Dawson</p>
-          <p class="time">08:01 PM</p></ion-col
+          ><p class="desc">{{ trx.reason }}</p>
+          <p class="time">
+            {{ trx.date.replace(/^[^:]*([0-2]\d:[0-5]\d).*$/, "$1") }}
+          </p></ion-col
         >
-        <ion-col size="3"><p :class="type">$570.00</p></ion-col>
+        <ion-col size="3"
+          ><p :class="trx.trxType">${{ trx.amount }}</p></ion-col
+        >
       </ion-row>
     </router-link>
 
-    <router-link to="/">
+    <!-- <router-link to="/">
       <ion-row clas="ion-align-items-center">
         <ion-col size="2" class="trx-img">
           <img src="../../assets/debit_icon.svg" alt="" class="icon" />
@@ -31,7 +35,7 @@
         >
         <ion-col size="3"><p class="debit">$157.00</p></ion-col>
       </ion-row>
-    </router-link>
+    </router-link> -->
   </ion-grid>
 </template>
 
@@ -75,25 +79,34 @@ export default {
     });
     await storage.create();
     this.storage = storage;
+    this.populateTransactions();
   },
   methods: {
     async populateTransactions() {
-      const userDetails = this.userStore.getUserData;
-      const trxs = userDetails.transactions;
-      trxs.forEach(async (trx) => {
-        const url = this.settingsStore.getUrl;
-        const response = await fetch(`${url}/transactions/${trx}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${this.decryptData(
-              await this.storage.get("u_token")
-            )}`,
-          },
-        });
-        const data = await response.json();
-        this.trxs.push(data);
+      // const userDetails = this.userStore.getUserData;
+      // const trxs = userDetails.transactions;
+      // trxs.forEach(async (trx) => {
+      const url = this.settingsStore.url.test;
+      const response = await fetch(`${url}/transactions`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.decryptData(
+            await this.storage.get("u_token")
+          )}`,
+        },
       });
+      const data = await response.json();
+      this.trxs = await data.data;
+      // console.log(this.trxs);
+      this.trxs.forEach((trx) => {
+        if (trx.trxType === "credit") {
+          trx.icon = "../../assets/icon/credit_icon.svg";
+        } else if (trx.trxType === "debit") {
+          trx.icon = "../../assets/icon/debit_icon.svg";
+        }
+      });
+      // });
     },
   },
 };
