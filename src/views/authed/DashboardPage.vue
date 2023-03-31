@@ -10,7 +10,7 @@
       <BottomMenu />
     </ion-content>
   </ion-page>
-  <errorPage message="You are currently not logged in" v-if="!isAuthed" />
+  <!-- <errorPage message="You are currently not logged in" v-if="!isAuthed" /> -->
 </template>
 
 <script>
@@ -21,7 +21,7 @@ import BalanceCard from "@/components/user/BalanceCard.vue";
 import CurrencyOperationsTab from "../../components/user/CurrencyOperationsTab.vue";
 import TransactionHistoryTabs from "../../components/user/TransactionHistory.vue";
 import BottomMenu from "@/components/BottomMenu.vue";
-import errorPage from "@/components/user/errorPage.vue";
+// import errorPage from "@/components/user/errorPage.vue";
 
 import { Drivers, Storage } from "@ionic/storage";
 import router from "@/router";
@@ -40,7 +40,7 @@ export default {
     CurrencyOperationsTab,
     TransactionHistoryTabs,
     BottomMenu,
-    errorPage,
+    // errorPage,
   },
   data() {
     return {

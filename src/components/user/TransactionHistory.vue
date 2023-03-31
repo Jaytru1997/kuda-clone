@@ -83,9 +83,6 @@ export default {
   },
   methods: {
     async populateTransactions() {
-      // const userDetails = this.userStore.getUserData;
-      // const trxs = userDetails.transactions;
-      // trxs.forEach(async (trx) => {
       const url = this.settingsStore.url.test;
       const response = await fetch(`${url}/transactions`, {
         method: "GET",
