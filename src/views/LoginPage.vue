@@ -219,7 +219,6 @@ export default {
     if (authStatus) {
       router.push("/authed/dashboard");
     }
-    // console.log(storage);
   },
 };
 </script>

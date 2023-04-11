@@ -32,6 +32,7 @@ export const useUserStore = defineStore("user", {
       // cards: [],
       // accountNumber: "",
     },
+    isUpdated: false,
   }),
   getters: {
     //   doubleCount: (state) => state.count * 2,

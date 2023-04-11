@@ -1,5 +1,6 @@
 <template>
-  <ion-page>
+  <ion-page v-if="!isAuthed && !isError">
+    <LoadingPage v-if="isLoading" />
     <ion-header>
       <ion-grid>
         <ion-row class="ion-align-items-center ion-justify-content-between">
@@ -34,6 +35,7 @@
               type="email"
               inputmode="email"
               value=""
+              v-model="email"
               name="email"
               required
               autocomplete
@@ -47,6 +49,7 @@
               placeholder="**********"
               type="password"
               value=""
+              v-model="password"
               inputmode="text"
               name="password"
               required
@@ -60,6 +63,7 @@
               placeholder="**********"
               type="password"
               value=""
+              v-model="conpassword"
               inputmode="text"
               name="conpassword"
               required
@@ -73,6 +77,7 @@
               expand="block"
               color="primary"
               class="signup"
+              @click="register"
               >Register</ion-button
             ></ion-col
           >
@@ -87,6 +92,11 @@
       </ion-grid>
     </div>
   </ion-page>
+  <successPage message="Successful" v-if="isAuthed" />
+  <errorPage
+    message="Something happened, try logging in again"
+    v-if="isError"
+  />
 </template>
 
 <script>
@@ -104,6 +114,18 @@ import {
 } from "@ionic/vue";
 import { chevronBackOutline } from "ionicons/icons";
 
+import { mapStores } from "pinia";
+import { useSettingsStore } from "@/stores/settings";
+import { useUserStore } from "@/stores/user";
+
+import successPage from "@/components/user/successPage.vue";
+import errorPage from "@/components/user/errorPage.vue";
+import LoadingPage from "@/components/LoadingPage";
+
+import encrypt from "@/mixins/encrypt";
+import router from "@/router";
+import { Drivers, Storage } from "@ionic/storage";
+
 export default {
   name: "RegisterPage",
   components: {
@@ -117,16 +139,99 @@ export default {
     IonCol,
     IonLabel,
     IonInput,
+    successPage,
+    errorPage,
+    LoadingPage,
   },
   data() {
     return {
       chevronBackOutline,
+      email: "",
+      password: "",
+      conpassword: "",
+      isLoading: false,
+      isAuthed: false,
+      isError: false,
+      errorMessage: "",
+      storage: null,
     };
+  },
+  mixins: [encrypt],
+  computed: {
+    ...mapStores(useUserStore, useSettingsStore),
   },
   methods: {
     goBack: () => {
       history.go(-1);
     },
+    async register() {
+      try {
+        this.isLoading = true;
+        const url = this.settingsStore.url.test;
+        //grab input from form
+        const email = this.email;
+        const password = this.password;
+        const conpassword = this.conpassword;
+
+        //send request to auth route
+        const response = await fetch(`${url}/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            conpassword,
+          }),
+        });
+
+        if (response.status >= 400) {
+          this.isLoading = false;
+          this.isError = true;
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        }
+
+        const data = await response.json();
+
+        if (response.status === 201 && data) {
+          this.isLoading = false;
+          const token = this.encryptData(data.token);
+          const u_id = this.encryptData(data.data._id);
+          data.data._id = u_id;
+          this.userStore.populateState(data.data);
+          this.isAuthed = true;
+          await this.storage.set("isAuthed", this.isAuthed);
+          await this.storage.set("u_token", token);
+          await this.storage.set("u_id", u_id);
+          setTimeout(() => {
+            router.push("/authed/dashboard");
+          }, 500);
+        } else {
+          this.isLoading = false;
+          this.isError = true;
+          setTimeout(() => {
+            location.reload();
+          }, 500);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
+  async created() {
+    const storage = new Storage({
+      name: "__peopletrustdb",
+      driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage],
+    });
+    await storage.create();
+    this.storage = storage;
+    const authStatus = await storage.get("isAuthed");
+    if (authStatus) {
+      router.push("/authed/dashboard");
+    }
   },
 };
 </script>

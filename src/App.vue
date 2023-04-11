@@ -39,15 +39,15 @@ export default {
         },
       });
       const data = await response.json();
-      // console.log(data.data);
       const encrypted_id = this.encryptData(await data.data._id);
       data.data._id = await encrypted_id;
-      const encrypted_token = this.encryptData(await data.token);
-      await storage.set("token", encrypted_token);
-      // this.userStore.populateState(await data.data);
       this.userStore.$patch({ user: await data.data });
-      // console.log(this.userStore);
+      this.userStore.$patch({ isUpdated: true });
+      // await storage.set("dataLoaded", true);
     }
+    // window.addEventListener("beforeunload", ()=>{
+
+    // })
   },
   computed: {
     ...mapStores(useUserStore, useSettingsStore),

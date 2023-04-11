@@ -42,10 +42,13 @@ export default {
     ...mapState(useUserStore, ["user"]),
   },
   mounted() {
+    // const isUpdated = this.user.isUpdated;
     // console.log("this comes first", this.user, this.balance);
-    setTimeout(() => {
-      this.balance = this.user.balances.main.amount;
-    }, 1000);
+    if (this.user.isUpdated) {
+      setTimeout(() => {
+        this.balance = this.user.balances.main.amount;
+      }, 200);
+    }
   },
 };
 </script>
