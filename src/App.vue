@@ -27,9 +27,9 @@ export default {
     });
     await storage.create();
     const authStatus = await storage.get("isAuthed");
-    const u_id = this.decryptData(await storage.get("u_id"));
-    const token = this.decryptData(await storage.get("u_token"));
     if (await authStatus) {
+      const u_id = this.decryptData(await storage.get("u_id"));
+      const token = this.decryptData(await storage.get("u_token"));
       const url = this.settingsStore.url.test;
       const response = await fetch(`${url}/users/${u_id}`, {
         method: "GET",
