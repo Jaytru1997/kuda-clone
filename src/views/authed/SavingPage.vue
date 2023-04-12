@@ -11,7 +11,7 @@
             ><ion-text><p class="heading">Your Pockets</p></ion-text></ion-col
           >
         </ion-row>
-        <router-link to="/">
+        <!-- <router-link to="/">
           <ion-row clas="ion-align-items-center">
             <ion-col size="10"
               ><p class="card-name">Walmart Credit Card</p>
@@ -21,7 +21,7 @@
               <img src="../../assets/credit_card.svg" alt="" class="icon" />
             </ion-col>
           </ion-row>
-        </router-link>
+        </router-link> -->
       </div>
       <BottomMenu />
     </ion-content>
