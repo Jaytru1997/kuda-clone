@@ -185,13 +185,6 @@ export default {
           type: "credit",
           cvv: "311",
         },
-        {
-          number: "0123456789101112",
-          name: "Precious Iruo",
-          validity: "12/24",
-          type: "credit",
-          cvv: "311",
-        },
       ],
     };
   },
