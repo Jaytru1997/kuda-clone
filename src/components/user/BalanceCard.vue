@@ -38,6 +38,9 @@ export default {
       balance: 0,
     };
   },
+  watch: {
+    "user.isUpdated": "updateUser",
+  },
   computed: {
     ...mapState(useUserStore, ["user"]),
   },
@@ -49,6 +52,15 @@ export default {
         this.balance = this.user.balances.main.amount;
       }, 200);
     }
+  },
+  methods: {
+    updateUser() {
+      if (this.user.isUpdated) {
+        setTimeout(() => {
+          this.balance = this.user.balances.main.amount;
+        }, 200);
+      }
+    },
   },
 };
 </script>

@@ -201,8 +201,9 @@ export default {
           const token = this.encryptData(data.token);
           const u_id = this.encryptData(data.data._id);
           data.data._id = u_id;
+          data.data.isUpdated = true;
           this.userStore.populateState(data.data);
-          this.userStore.$patch({ isUpdated: true });
+          // this.userStore.$patch({ isUpdated: true });
           this.isAuthed = true;
           await this.storage.set("isAuthed", this.isAuthed);
           await this.storage.set("u_token", token);

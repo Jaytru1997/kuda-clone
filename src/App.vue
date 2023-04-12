@@ -65,8 +65,9 @@ export default {
         const data = await response.json();
         const encrypted_id = this.encryptData(await data.data._id);
         data.data._id = await encrypted_id;
+        data.data.isUpdated = true;
         this.userStore.$patch({ user: await data.data });
-        this.userStore.$patch({ isUpdated: true });
+        // this.userStore.$patch({ isUpdated: true });
       }
     }
   },
