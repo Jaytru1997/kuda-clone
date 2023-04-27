@@ -7,7 +7,7 @@
           alt=""
           class="profile-img"
         />
-        Hi, Johnny</ion-col
+        Hi, User</ion-col
       >
       <ion-col size="2" class="ion-text-end">
         <img src="../../assets/pie_chart_icon.svg" alt="" />
