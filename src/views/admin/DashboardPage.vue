@@ -259,6 +259,6 @@ a {
 }
 
 .text-style {
-  text-shadow: 0 0 10px #ffffff, 2px 2px 1px rgba(61, 203, 206, 0);
+  color: var(--ion-color-light);
 }
 </style>
