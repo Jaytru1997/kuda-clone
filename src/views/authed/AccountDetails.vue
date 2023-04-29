@@ -43,7 +43,7 @@
                       <p class="account-number-heading">Your Account Number</p>
                       <p class="account-number">2000000000</p>
                     </ion-col>
-                    <ion-col siz="2" class="copy">
+                    <ion-col size="2" class="copy">
                       COPY
                       <ion-icon
                         :icon="copy"

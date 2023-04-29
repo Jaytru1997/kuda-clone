@@ -92,8 +92,32 @@
         <ion-title>Bank Admin</ion-title>
       </ion-toolbar>
     </ion-header>
+
+    <!--Dashboard Cards Begin-->
     <ion-content class="ion-padding">
-      Tap the button in the toolbar to open the menu.
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card class="card">
+              <ion-card-content class="card-content">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="1">
+                    <ion-icon
+                      :icon="personOutline"
+                      size="large"
+                      color="light"
+                    ></ion-icon>
+                  </ion-col>
+                  <ion-col size="6" offset="5" class="ion-text-center">
+                    <p class="text-style">Registered Users</p>
+                    <p class="account-number text-style">2</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-content>
   </ion-page>
 </template>
@@ -112,6 +136,11 @@ import {
   IonLabel,
   IonList,
   IonIcon,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardContent,
 } from "@ionic/vue";
 import {
   personOutline,
@@ -141,6 +170,11 @@ export default {
     IonLabel,
     IonList,
     IonIcon,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardContent,
   },
   data() {
     return {
@@ -199,5 +233,31 @@ ion-menu::part(container) {
 
 a {
   text-decoration: none;
+}
+
+.card {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: var(--ion-color-step-950);
+  background-image: url(../../assets/meteorbg.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.card-content {
+  background-image: url(../../assets/wavebg.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.account-number {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.text-style {
 }
 </style>

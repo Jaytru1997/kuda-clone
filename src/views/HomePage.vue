@@ -3,8 +3,8 @@
     <LoadingPage v-if="isLoading" />
     <ion-header>
       <ion-grid>
-        <ion-row class="ion-align-items-center">
-          <ion-col size="12" size-lg="9">
+        <ion-row class="ion-justify-content-start ion-align-items-center">
+          <ion-col size="12" size-lg="3" class="ion-text-left">
             <!-- <ion-toolbar :translucent="true"> -->
             <ion-title
               ><img
@@ -14,7 +14,7 @@
             /></ion-title>
             <!-- </ion-toolbar> -->
           </ion-col>
-          <ion-col size="12" size-lg="3">
+          <ion-col size="12" offset-lg="5" size-lg="4">
             <ion-button fill="clear" class="signin" href="/login"
               >Sign in</ion-button
             >
