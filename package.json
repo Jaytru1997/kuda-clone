@@ -40,7 +40,8 @@
     "eslint": "^8.4.1",
     "eslint-plugin-vue": "^9.8.0",
     "jest": "^27.3.1",
-    "ts-jest": "^27.0.7"
+    "ts-jest": "^27.0.7",
+    "volar-service-vetur": "latest"
   },
   "description": "An Ionic project"
 }
