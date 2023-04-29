@@ -26,7 +26,7 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
-    "@capacitor/cli": "4.6.2",
+    "@capacitor/cli": "^4.8.0",
     "@vue/cli-plugin-babel": "~5.0.0-rc.1",
     "@vue/cli-plugin-e2e-cypress": "~5.0.0-rc.1",
     "@vue/cli-plugin-eslint": "~5.0.0-rc.1",
@@ -41,7 +41,7 @@
     "eslint-plugin-vue": "^9.8.0",
     "jest": "^27.3.1",
     "ts-jest": "^27.0.7",
-    "volar-service-vetur": "latest"
+    "volar-service-vetur": "^0.0.0"
   },
   "description": "An Ionic project"
 }
