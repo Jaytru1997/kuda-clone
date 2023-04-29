@@ -3,22 +3,30 @@
     <LoadingPage v-if="isLoading" />
     <ion-header>
       <ion-grid>
-        <ion-row class="ion-justify-content-start ion-align-items-center">
-          <ion-col size="12" size-lg="3" class="ion-text-left">
+        <ion-row class="ion-align-items-center">
+          <ion-col size-sm="9" size-lg="3">
             <!-- <ion-toolbar :translucent="true"> -->
-            <ion-title
-              ><img
-                src="../assets/people_trust_black.svg"
-                alt="bank logo"
-                class="logo"
-            /></ion-title>
+            <img
+              src="../assets/people_trust_black.svg"
+              alt="bank logo"
+              class="logo"
+            />
             <!-- </ion-toolbar> -->
           </ion-col>
-          <ion-col size="12" offset-lg="5" size-lg="4">
-            <ion-button fill="clear" class="signin" href="/login"
+          <ion-col
+            size-sm="2"
+            offset-sm="1"
+            offset-lg="5"
+            size-lg="4"
+            class="ion-align-items-center"
+          >
+            <ion-button
+              fill="clear"
+              class="signin ion-text-sm-center"
+              href="/login"
               >Sign in</ion-button
             >
-            <ion-button class="join" href="/register"
+            <ion-button class="join ion-hide-sm-down" href="/register"
               >Join People Trust</ion-button
             >
           </ion-col>
@@ -184,7 +192,7 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
+  // IonTitle,
   IonButton,
   IonText,
 } from "@ionic/vue";
@@ -197,7 +205,7 @@ export default {
     IonContent,
     IonHeader,
     IonPage,
-    IonTitle,
+    // IonTitle,
     IonButton,
     IonText,
     LoadingPage,
@@ -238,10 +246,18 @@ export default {
     font-weight: 800;
     text-align: left;
   }
+
+  ion-button {
+    text-transform: capitalize;
+    --border-radius: 10px;
+    --box-shadow: 0px 0px;
+    --padding-top: 25px;
+    --padding-bottom: 25px;
+  }
 }
 
 .logo {
-  width: 150px;
+  width: 200px;
 }
 
 ion-header {
