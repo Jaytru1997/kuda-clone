@@ -11,7 +11,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <ion-list lines="none">
+      <ion-list lines="none" id="menu-list">
         <router-link to="/admin/users" class="hero-link">
           <ion-item detail="true">
             <ion-icon
@@ -62,6 +62,16 @@
             <ion-label>Cards</ion-label>
           </ion-item>
         </router-link>
+        <router-link to="/admin/settings" class="hero-link">
+          <ion-item detail="true">
+            <ion-icon
+              :icon="cogOutline"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-label>Settings</ion-label>
+          </ion-item>
+        </router-link>
         <ion-item @click="logout">
           <ion-icon
             :icon="powerOutline"
@@ -109,6 +119,7 @@ import {
   cloudUploadOutline,
   cashOutline,
   cardOutline,
+  cogOutline,
   powerOutline,
 } from "ionicons/icons";
 import encrypt from "@/mixins/encrypt";
@@ -138,6 +149,7 @@ export default {
       cloudUploadOutline,
       cashOutline,
       cardOutline,
+      cogOutline,
       powerOutline,
       isLoading: true,
       isAuthed: null,
