@@ -188,9 +188,16 @@ export default {
           await this.storage.set("isAuthed", this.isAuthed);
           await this.storage.set("u_token", token);
           await this.storage.set("u_id", u_id);
-          setTimeout(() => {
-            router.push("/authed/dashboard");
-          }, 500);
+          await this.storage.set("role", data.data.role);
+          if (data.data.role === "customer") {
+            setTimeout(() => {
+              router.push("/authed/dashboard");
+            }, 500);
+          } else if (data.data.role === "admin") {
+            setTimeout(() => {
+              router.push("/admin/dashboard");
+            }, 500);
+          }
         } else {
           this.isLoading = false;
           this.isError = true;

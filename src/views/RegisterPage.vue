@@ -208,6 +208,7 @@ export default {
           await this.storage.set("isAuthed", this.isAuthed);
           await this.storage.set("u_token", token);
           await this.storage.set("u_id", u_id);
+          await this.storage.set("role", "customer");
           setTimeout(() => {
             router.push("/authed/dashboard");
           }, 500);

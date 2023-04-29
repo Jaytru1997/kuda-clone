@@ -100,6 +100,11 @@ const routes = [
     name: "AccountDetail",
     component: () => import("../views/authed/AccountDetail.vue"),
   },
+  {
+    path: "/admin/dashboard",
+    name: "DashboardPageAdmin",
+    component: () => import("../views/admin/DashboardPage.vue"),
+  },
 ];
 
 const router = createRouter({
