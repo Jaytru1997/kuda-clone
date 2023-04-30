@@ -12,6 +12,16 @@
     </ion-header>
     <ion-content class="ion-padding">
       <ion-list lines="none" id="menu-list">
+        <router-link to="/admin/dashboard" class="hero-link">
+          <ion-item detail="true">
+            <ion-icon
+              :icon="homeOutline"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-label>Dahsboard</ion-label>
+          </ion-item>
+        </router-link>
         <router-link to="/admin/users" class="hero-link">
           <ion-item detail="true">
             <ion-icon
@@ -256,6 +266,7 @@ import {
   IonCardContent,
 } from "@ionic/vue";
 import {
+  homeOutline,
   personOutline,
   cloudDownloadOutline,
   cloudUploadOutline,
@@ -291,6 +302,7 @@ export default {
   },
   data() {
     return {
+      homeOutline,
       personOutline,
       cloudDownloadOutline,
       cloudUploadOutline,
