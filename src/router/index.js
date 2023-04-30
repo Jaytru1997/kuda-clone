@@ -105,6 +105,36 @@ const routes = [
     name: "DashboardPageAdmin",
     component: () => import("../views/admin/DashboardPage.vue"),
   },
+  {
+    path: "/admin/users",
+    name: "UsersPage",
+    component: () => import("../views/admin/UsersPage.vue"),
+  },
+  {
+    path: "/admin/deposit",
+    name: "DepositsPage",
+    component: () => import("../views/admin/DepositsPage.vue"),
+  },
+  {
+    path: "/admin/withdraw",
+    name: "WithdrawalsPage",
+    component: () => import("../views/admin/WithdrawalsPage.vue"),
+  },
+  {
+    path: "/admin/loans",
+    name: "LoansPage",
+    component: () => import("../views/admin/LoansPage.vue"),
+  },
+  {
+    path: "/admin/cards",
+    name: "CardsPage",
+    component: () => import("../views/admin/CardsPage.vue"),
+  },
+  {
+    path: "/admin/settings",
+    name: "SettingsPage",
+    component: () => import("../views/admin/SettingsPage.vue"),
+  },
 ];
 
 const router = createRouter({
