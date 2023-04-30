@@ -96,8 +96,8 @@
     <!--Dashboard Cards Begin-->
     <ion-content class="ion-padding">
       <ion-grid>
-        <ion-row>
-          <ion-col>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12" size-lg="4">
             <ion-card class="card">
               <ion-card-content class="card-content">
                 <ion-row class="ion-align-items-center">
@@ -115,6 +115,119 @@
                 </ion-row>
               </ion-card-content>
             </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-lg="4">
+            <ion-card class="card">
+              <ion-card-content class="card-content">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="1">
+                    <ion-icon
+                      :icon="cloudDownloadOutline"
+                      size="large"
+                      color="light"
+                    ></ion-icon>
+                  </ion-col>
+                  <ion-col size="6" offset="5" class="ion-text-center">
+                    <p class="text-style">Deposit Requests</p>
+                    <p class="account-number text-style">2</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-lg="4">
+            <ion-card class="card">
+              <ion-card-content class="card-content">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="1">
+                    <ion-icon
+                      :icon="cloudUploadOutline"
+                      size="large"
+                      color="light"
+                    ></ion-icon>
+                  </ion-col>
+                  <ion-col size="6" offset="5" class="ion-text-center">
+                    <p class="text-style">Withdrawal Requests</p>
+                    <p class="account-number text-style">20</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col size="12" size-lg="4">
+            <ion-card class="card">
+              <ion-card-content class="card-content">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="1">
+                    <ion-icon
+                      :icon="personOutline"
+                      size="large"
+                      color="light"
+                    ></ion-icon>
+                  </ion-col>
+                  <ion-col size="6" offset="5" class="ion-text-center">
+                    <p class="text-style">KYC Submitted</p>
+                    <p class="account-number text-style">2</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-lg="4">
+            <ion-card class="card">
+              <ion-card-content class="card-content">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="1">
+                    <ion-icon
+                      :icon="cashOutline"
+                      size="large"
+                      color="light"
+                    ></ion-icon>
+                  </ion-col>
+                  <ion-col size="6" offset="5" class="ion-text-center">
+                    <p class="text-style">Loan Requests</p>
+                    <p class="account-number text-style">2</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col size="12" size-lg="4">
+            <ion-card class="card">
+              <ion-card-content class="card-content">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="1">
+                    <ion-icon
+                      :icon="cardOutline"
+                      size="large"
+                      color="light"
+                    ></ion-icon>
+                  </ion-col>
+                  <ion-col size="6" offset="5" class="ion-text-center">
+                    <p class="text-style">Total Cards</p>
+                    <p class="account-number text-style">2</p>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12">
+            <coingecko-coin-converter-widget
+              coin-id="bitcoin"
+              currency="usd"
+              background-color="transparent"
+              font-color="#4c4c4c"
+              locale="en"
+            ></coingecko-coin-converter-widget>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -251,6 +364,7 @@ a {
   background-image: url(../../assets/wavebg.svg);
   background-position: bottom;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .account-number {
