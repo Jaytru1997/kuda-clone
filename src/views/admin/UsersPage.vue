@@ -89,7 +89,7 @@
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-title>Bank Admin</ion-title>
+        <ion-title>Users</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -194,4 +194,22 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+ion-menu::part(backdrop) {
+  background-color: rgba(255, 0, 255, 0.5);
+}
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+
+  box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
+}
+
+.logo {
+  width: 150px;
+}
+
+a {
+  text-decoration: none;
+}
+</style>
